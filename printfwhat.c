@@ -8,7 +8,8 @@ int main(void)
 
     i = printf("What am I doing?\n");
 
-    printf("%d", i); // i is the length of the string inside the printf
+    /* i is the length of the string inside the printf */
+    printf("%d", i);
 
     return 0;
 }
