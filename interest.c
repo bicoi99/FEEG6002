@@ -5,9 +5,9 @@
 int main(void)
 {
     int s = 1000;
-    float debt = s;
-    float rate = 0.03;
-    float interest, total_interest, frac;
+    double debt = s;
+    double rate = 0.03;
+    double interest, total_interest, frac;
 
     for (int month = 1; month < 25; month++)
     {

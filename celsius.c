@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    float tempF;
+    double tempF;
     for (int tempC = -30; tempC <= 30; tempC += 2)
     {
         tempF = tempC * (9.0 / 5.0) + 32.0;
