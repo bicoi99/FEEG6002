@@ -1,5 +1,5 @@
 {
     "code-runner.executorMap": {
-        "c": "cd $dir && gcc $fileName -o executables\\$fileNameWithoutExt && $dir\\executables\\$fileNameWithoutExt"
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $fileNameWithoutExt"
     },
 }
