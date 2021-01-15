@@ -4,12 +4,13 @@
 
 double trapez(double (*f)(double), double a, double b, int n)
 {
-    double A;
+    double A = 0;
     double h = (b - a) / n;
+    int i;
 
     A += h / 2 * (f(a) + f(b));
 
-    for (int i = 1; i < n; i++)
+    for (i = 1; i < n; i++)
     {
         A += h * (f(a + i * h));
     }
@@ -64,7 +65,7 @@ int main()
     double b = 2;
     int n = 10;
 
-    printf("%lf\n", error_trapez(square, square_exact, a, b, n));
-    printf("%lf", error_qgaus(square, square_exact, a, b));
+    printf("%f\n", error_trapez(square, square_exact, a, b, n));
+    printf("%f", error_qgaus(square, square_exact, a, b));
     return 0;
 }

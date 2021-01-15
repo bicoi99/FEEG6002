@@ -42,16 +42,16 @@ int number_of_lines(char *filename)
 int read_data(char *filename, double **m, int n)
 {
     FILE *fp;
-    char c;
+    int i, j;
 
     if ((fp = fopen(filename, "r")) == NULL)
     {
         printf("Cannot open '%s' for reading", filename);
         return -1;
     }
-    for (int i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
     {
-        for (int j = 0; j < 3; j++)
+        for (j = 0; j < 3; j++)
         {
             fscanf(fp, "%lf", m[i] + j);
         }
@@ -61,6 +61,7 @@ int read_data(char *filename, double **m, int n)
         printf("File could not be closed.");
         return -1;
     }
+    return 0;
 }
 /*
  The function write_data(...) takes as input a file name
@@ -72,21 +73,23 @@ int read_data(char *filename, double **m, int n)
 int write_data(char *filename, double **m, int n)
 {
     FILE *fp;
+    int i;
 
     if ((fp = fopen(filename, "wb")) == NULL)
     {
         printf("Cannot open '%s' for writing", filename);
         return -1;
     }
-    for (int i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
     {
-        fprintf(fp, "%lf %lf %lf\n", m[i][0], m[i][1], m[i][2]);
+        fprintf(fp, "%f %f %f\n", m[i][0], m[i][1], m[i][2]);
     }
     if (fclose(fp) != 0)
     {
         printf("File could not be closed.");
         return -1;
     }
+    return 0;
 }
 /*
  The function rotate_vector(...) takes as input an 3-element array v
@@ -135,7 +138,6 @@ void rotate_vector(double v[], double angle)
 /******************************************************/
 int main()
 {
-    FILE *fr, *fw;
     int i, j, n;
     double **m;
     double v[3];
@@ -145,7 +147,6 @@ int main()
     char s_out[] = "data.out"; /* output data file */
     /* Find how many lines in the input file */
     n = number_of_lines(s_in);
-    // printf("The file %s has %d lines", s_in, n);
     /* Dynamic memory allocation is necessary because we
     don't know the size of the matrix apriori, i.e.
     the input file can have a variable number of lines.
@@ -160,14 +161,16 @@ int main()
     }
     /* read data from file */
     read_data(s_in, m, n);
-    // for (i = 0; i < n; i++)
-    // {
-    //     for (int j = 0; j < 3; j++)
-    //     {
-    //         printf("%lf ", m[i][j]);
-    //     }
-    //     printf("\n");
-    // }
+    /*
+    for (i = 0; i < n; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            printf("%lf ", m[i][j]);
+        }
+        printf("\n");
+    } 
+    */
     /* now rotate every vector */
     for (i = 0; i < n; i++)
     {
