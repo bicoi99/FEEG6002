@@ -2,4 +2,9 @@
     "code-runner.executorMap": {
         "c": "cd $dir && gcc -ansi -pedantic -Wall $fileName -lm -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
     },
+    "files.associations": {
+        "*.json": "jsonc",
+        "stdio.h": "c",
+        "string.h": "c"
+    },
 }
