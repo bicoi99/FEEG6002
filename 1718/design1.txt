@@ -1,0 +1,2 @@
+Input script for design 1
+Length of strut is 1.2 mm

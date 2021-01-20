@@ -1,0 +1,2 @@
+Input script for design 3
+Length of strut is 10.2 mm
