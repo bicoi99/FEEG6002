@@ -21,6 +21,7 @@ This is Huy Duong repository for the module [FEEG6002](https://www.southampton.a
 - [Structures](#structures)
 - [Files](#files)
 - [Command line arguments](#command-line-arguments)
+- [Function pointers](#function-pointers)
 
 ### Compiling a C programme
 
